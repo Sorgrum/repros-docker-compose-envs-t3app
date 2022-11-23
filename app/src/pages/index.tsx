@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { env } from "../env/client.mjs";
 import { trpc } from "../utils/trpc";
 import styles from "./index.module.css";
 
@@ -18,7 +19,7 @@ const Home: NextPage = () => {
           <h1 className={styles.title}>
             Create <span className={styles.titlePink}>T3</span> App
           </h1>
-
+          FOO: {env.NEXT_PUBLIC_FOO}
           <h3 className={styles.subtitle}>This stack uses:</h3>
           <div className={styles.cardGrid}>
             <TechnologyCard
@@ -52,7 +53,6 @@ const Home: NextPage = () => {
               documentation="https://www.prisma.io/docs/"
             />
           </div>
-
           <div className={styles.helloFrom}>
             {data ? <p>{data.greeting}</p> : <p>Loading...</p>}
           </div>
